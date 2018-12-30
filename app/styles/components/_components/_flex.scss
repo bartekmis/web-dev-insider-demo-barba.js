@@ -1,0 +1,49 @@
+.flex {
+    display: flex;
+    width: 100%;
+    flex-flow: wrap row;
+    align-items: stretch;
+    justify-content: flex-start;
+
+    > [class*="col-"] {
+        flex-direction: row;
+        flex-flow: nowrap row;
+        float: none;
+    }
+
+    &--auto {
+        > * {
+            flex-basis: 0;
+            flex-grow: 1;
+            max-width: 100%;
+        }
+    }
+
+    &--top {
+        align-items: flex-start;
+
+        > [class*="col-"] {
+            align-self: flex-start;
+        }
+    }
+
+    &--bottom {
+        align-items: flex-end;
+    }
+
+    &__spacer {
+        flex-grow: 1;
+    }
+
+    &--center {
+        justify-content: center;
+
+        > [class*="col-"] {
+            align-self: center;
+        }
+    }
+
+    &--middle {
+        align-items: center;
+    }
+}

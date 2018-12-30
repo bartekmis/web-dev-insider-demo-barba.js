@@ -1,0 +1,76 @@
+.section {
+    position: relative;
+
+    // default padding
+    padding: {
+        top: 60px;
+        bottom: 60px;
+    }
+
+    // padding variations
+    &--p-small {
+        &-top {
+            padding-top: 20px;
+        }
+
+        &-bottom {
+            padding-bottom: 20px;
+        }
+    }
+
+    &--p-medium {
+        &-top {
+            padding-top: 40px;
+        }
+
+        &-bottom {
+            padding-bottom: 40px;
+        }
+    }
+
+    &--p-large {
+        &-top {
+            padding-top: 80px;
+        }
+
+        &-bottom {
+            padding-bottom: 80px;
+        }
+    }
+
+    &--p-none {
+        &-top {
+            padding-top: 0;
+        }
+
+        &-bottom {
+            padding-bottom: 0;
+        }
+    }
+
+    // header + footer
+    &__header {
+        padding-bottom: 2em;
+    }
+
+    &__footer {
+        padding-top: 2em;
+    }
+    
+    // useful
+    &--vertically-aligned {
+        display: flex;
+        align-items: center;
+    }
+    
+    &--btns-on-bottom {
+        [class*="col-"] {
+            padding-bottom: 100px;
+        }
+
+        .btn {
+            position: absolute;
+            bottom: 30px;
+        }
+    }
+}

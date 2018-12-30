@@ -1,0 +1,174 @@
+/**
+*
+* Forms
+*
+**/
+
+.form {
+    position: relative;
+
+    fieldset {
+        @include clearfix();
+    }
+}
+
+
+// General
+.form__input, 
+.form__textarea, 
+select, 
+.form__select {  
+    width: 100%; 
+    border-radius: 2px; 
+    border: solid 1px #ccc; 
+    padding: .3em .5em;
+    outline: none;
+
+    &:focus {
+        border-color: $colorMain;
+    }
+}
+    
+.form__select, 
+select {
+    background: white url(../images/formelements-select.png) no-repeat center right;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+
+select {
+    line-height: 1;
+}
+
+
+// Inputs & textareas
+.form__input, 
+.form__textarea { 
+    background-color: #f5f5f5;
+    box-shadow: inset 0 2px 3px rgba(0,0,0,0.2);
+}
+    
+.ie9 .form__input {
+    line-height:normal;
+} /* Get the stuff to line up right */
+    
+.form__textarea {
+    width: 100%;
+    min-height: 10em;
+}
+
+
+// Checkbox & Radio inputs
+.form__radio, 
+.form__checkbox {
+    position: absolute; 
+    left: -999em;
+}
+
+.form__radio-label,
+.form__checkbox-label {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 20px;
+}
+        
+.form__radio-label:before,
+.form__checkbox-label:before { 
+    display: inline-block; 
+    position: relative; 
+    top: 2px; 
+    left: -2px; 
+    content:''; 
+    width: 25px; 
+    height: 23px;
+    background: url(../images/formelements.png) top left no-repeat; 
+}
+
+.form__checkbox + .form__checkbox-label:before {
+    background-position: 0 -25px;
+}
+
+.form__checkbox:checked + .form__checkbox-label:before {
+    background-position: 0 0 ;
+}
+         
+.form__radio + .form__radio-label:before {
+    background-position: -25px -25px;
+}         
+
+.form__radio:checked + .form__radio-label:before {
+    background-position: -25px 0;
+}
+
+// Select list
+.form__select {
+    overflow:hidden;
+    padding:0;
+    margin:0;
+    max-width: 600px;
+
+    select {
+        width:115%;
+        background-color:transparent;
+        background-image:none;
+        -webkit-appearance: none;
+        border:none;
+        box-shadow:none;
+    }
+}
+
+
+// Label above the field
+.form__label {
+    display: block;
+    width: 100%;
+    line-height: 2;
+}
+
+
+.form__row {
+    display: table;
+    width: 100%;
+    clear:both;
+    padding: 6px 0;
+
+    &__left,
+    &__right {
+        display: table-cell;
+        vertical-align: top;
+    }
+
+    &__left {
+        width: 200px;
+    }
+
+    &__right {
+        width: 70%;
+    }
+}
+
+
+
+.form__response {
+    border-radius: 5px;
+
+
+    &--ok {
+        background: green;
+    }
+
+    &--error {
+        background: red;
+    }
+
+    p {
+        padding: 10px;
+
+        font-size: 1em !important;
+        color: #fff;
+        text-shadow: none;
+    }
+}
+
+#contact-mail {
+    display: none;
+}

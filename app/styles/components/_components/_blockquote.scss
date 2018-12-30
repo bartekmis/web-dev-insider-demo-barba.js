@@ -1,0 +1,50 @@
+/**
+*
+* Blockquote
+*
+**/
+
+.blockquote {
+    margin: 1em 0;
+    padding: 5px 10px 10px 0;
+
+    > p {
+        position: relative;
+        font-size: 1.25rem;
+
+
+        &:first-child:before,
+        &:first-child:after {
+            position: absolute;
+            font-size: 1.4em;
+            color: #fff;
+        }
+
+       &:first-child:before {
+            content: '\201C';
+            width: 25px;
+            height: 25px;
+
+            margin-top: -75px;
+
+            font-size: 5em;
+            font-weight: 600;
+        }
+
+        &:last-of-type:after {
+            position: absolute;
+            right: 0;
+            content: '\201D';
+            width: 25px;
+            height: 25px;
+            bottom: 0;
+
+            font-size: 5em;
+            font-weight: 600;
+        }
+
+        &:last-of-type {
+            margin-bottom: .5em;
+        }
+    }
+}

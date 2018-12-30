@@ -1,0 +1,29 @@
+
+$mainContainerMaxWidth: 1280;
+$narrowContainerMaxWidth: 850;
+$largeContainerMaxWidth: 1500;
+
+.container {
+    position: relative;
+    margin-right: auto;
+    margin-left: auto;
+
+    width: 92%;
+    max-width: ($mainContainerMaxWidth)+px;
+
+    &-narrow {
+        @extend .container;
+        max-width: ($narrowContainerMaxWidth)+px;
+    }
+
+    &-large {
+        @extend .container;
+        max-width: ($largeContainerMaxWidth)+px;
+    }
+
+    &-fluid {
+        padding-left: 0;
+        padding-right: 0;
+        overflow-x: hidden;
+    }
+}

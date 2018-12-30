@@ -1,0 +1,18 @@
+.bg {
+    @each $colorName, $color in $colors {
+        &-#{$colorName} {
+            background-color: $color;
+
+            @if map-has-key($bgColorsWhiteFont, $colorName) {
+                .content ul li:before,
+                &.content ul li:before {
+                    background-image: url(../images/list-white-arrow.svg);
+                }
+            }
+        }
+
+        &-transparent-#{$colorName} {
+            background-color: rgba($color, 0.8);
+        }
+    }
+}

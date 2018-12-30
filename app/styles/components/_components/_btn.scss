@@ -1,0 +1,33 @@
+/**
+*
+* Button
+*
+**/
+
+.btn {
+    @include inline-block();
+    padding: .7em 1.5em;
+    border-radius: 6px;
+    transition: background-color 0.2s ease;
+
+    font-weight: 600;
+}
+
+// Size
+.btn--big {
+    font-size: 1.5em;
+}
+
+.btn--small {
+    font-size: 1em;
+}
+
+// Colour
+.btn--black {
+    background: #000;
+    color: #fff;
+
+    &:hover {
+        background: #666;
+    }
+}

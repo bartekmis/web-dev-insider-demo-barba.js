@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../node_modules/mocha/mocha.css">
+    <!-- inject:js -->
+    <script src="../coverage/app.js"></script>
+    <script src="../coverage/main.js"></script>
+    <script src="../coverage/prettify.js"></script>
+    <script src="../coverage/sorter.js"></script>
+    <script src="../coverage/sw/runtime-caching.js"></script>
+    <!-- endinject -->
+</head>
+<body>
+    <div id="mocha"></div>
+    
+    <!-- our mocha and chai testing libraries-->
+    <script src="../node_modules/mocha/mocha.js"></script>
+    <script>
+        // binding mocha with phantomJS
+        window.initMochaPhantomJS && window.initMochaPhantomJS();
+        mocha.setup('bdd');
+    </script>
+    <script src="../node_modules/chai/chai.js"></script>
+
+    <script>
+        var assert = chai.assert;
+        var expect = chai.expect;
+        var should = chai.should();
+    </script>
+
+    <!-- inject:tests:js -->
+    <script src="spec/app.js"></script>
+    <script src="spec/jquery.min.js"></script>
+    <script src="spec/main.js"></script>
+    <script src="spec/test.js"></script>
+    <!-- endinject -->
+
+    <script>
+        //initializing testing
+        mocha.run();
+    </script>
+</body>
+</html>
+</body>
+</html>
+
+
+
+<!--
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Mocha Spec Runner</title>
+    <link rel="stylesheet" href="/node_modules/mocha/mocha.css">
+</head>
+<body>
+    <div id="mocha"></div>
+    <script src="/node_modules/mocha/mocha.js"></script>
+    <script>mocha.setup('bdd')</script>
+    <script src="/node_modules/chai/chai.js"></script>
+    <script>
+        var assert = chai.assert;
+        var expect = chai.expect;
+        var should = chai.should();
+    </script>
+    <script src="/app/scripts/app.js"></script>
+    <script src="spec/test.js"></script>
+
+    <script>mocha.run()</script>
+</body>
+</html>
+
+-->

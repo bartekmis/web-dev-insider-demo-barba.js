@@ -1,0 +1,50 @@
+{
+    "vendor": [
+        "./node_modules/jquery/dist/jquery.min.js",
+        "./node_modules/waypoints/lib/noframework.waypoints.min.js",
+        "./node_modules/magnific-popup/dist/jquery.magnific-popup.js",
+        "./app/scripts/vendor/svgxuse.js"
+    ],
+
+    "ownJs": [
+        "./app/scripts/main.js",
+        "./app/scripts/utils/_screenSize.es6",
+        "./app/scripts/utils/_scrollToId.es6",
+        "./app/scripts/utils/_infiniteScroll.es6",
+        "./app/scripts/utils/_animationedSections.es6",
+        "./app/scripts/utils/_popup.es6",
+        "./app/scripts/utils/_trackEvent.es6",
+        "./app/scripts/utils/_form.es6",
+        "./app/scripts/app.es6"
+    ],
+
+    "head": [],
+
+    "body": [
+        "scripts/jquery.min.js",
+        "scripts/noframework.waypoints.min.js",
+        "scripts/jquery.magnific-popup.js",
+        "scripts/svgxuse.js",
+        "scripts/main.js",
+        "scripts/_screenSize.js",
+        "scripts/_scrollToId.js",
+        "scripts/_infiniteScroll.js",
+        "scripts/_animationedSections.js",
+        "scripts/_popup.js",
+        "scripts/_trackEvent.js",
+        "scripts/_form.js",
+        "scripts/app.js"
+    ],
+
+    "jsHint": [
+        "scripts/main.js",
+        "scripts/_screenSize.js",
+        "scripts/_scrollToId.js",
+        "scripts/_infiniteScroll.js",
+        "scripts/_animationedSections.js",
+        "scripts/_popup.js",
+        "scripts/_trackEvent.js",
+        "scripts/_form.js",
+        "scripts/app.js"
+    ]
+}

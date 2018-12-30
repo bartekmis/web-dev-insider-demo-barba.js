@@ -1,0 +1,130 @@
+/**
+*
+* List
+*
+**/
+
+// General
+ul,
+ol {
+    padding: 0;
+    margin: 0;
+}
+
+ul,
+.list-ol {
+    list-style-type: none;
+}
+
+.list-ul,
+.list-ol {
+    padding-top: 0.7em;
+    padding-bottom: 0.7em;
+
+    li {
+        padding: 1px 0 1px 0;
+        position: relative;
+        margin-bottom: 2px;
+
+        &:before {
+            position: absolute;
+            overflow: hidden;
+            display: block;
+            content: " ";
+        }
+
+        &:last-child {
+            padding-bottom: 0;
+        }
+    }
+}
+
+// Unordered list
+.list-ul {
+    padding-left: 30px;
+
+    li {
+        &:before {
+            top: .2em;
+            left: -30px;
+
+            width: 22px;
+            height: 22px;
+
+            content: "•";
+            color: #222;
+
+            //background: url(../images/icons/icons_icon--tick.svg) top left no-repeat;
+            //background-size: 20px auto;
+        }
+    }
+}
+
+// Ordered list
+.list-ol {
+    counter-reset: item;
+    padding-left: 30px;
+
+    li {
+        &:before {
+            left: -30px;
+
+            width: 25px;
+            content: counters(item, ".") ". ";
+            counter-increment: item;
+
+            text-align: center;
+            line-height: 1.5;
+        }
+    }
+}
+
+// Other types of lists
+.list-2-cols,
+.list-3-cols,
+.list-4-cols {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    
+	li {
+        width: 100%;
+
+        margin-bottom: 10px;
+	}
+}
+
+.list-2-cols {
+    li {
+        @media (min-width: 501px) {
+            width: 47%;
+        }
+    }
+}
+
+.list-3-cols {
+    li {
+        @media (min-width: 768px) {
+            width: 30%;
+        }
+    }
+}
+
+.list-4-cols {
+    li {
+        @media (min-width: 500px) and (max-width: 991px) {
+            width: 50%;
+        }
+
+        @media (min-width: 992px) {
+            width: 22%;
+        }
+    }
+}
+
+.content .list--no-bullet,
+.list--no-bullet {
+    li:before {
+        display: none;
+    }
+}

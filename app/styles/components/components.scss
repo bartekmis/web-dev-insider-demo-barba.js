@@ -1,0 +1,48 @@
+/**
+*
+* Main Stylesheet For Visual Style Guide
+*
+**/
+
+@import '_variables';
+@import '_utils';
+@import '_base/_normalize';
+@import '_base/_global';
+
+// Layout
+@import '_layout/_navbar';
+@import '_layout/_header';
+@import '_layout/_main';
+@import '_layout/_footer';
+
+// Components (you can replace the below ones to bootstrap or other framework's files just with components)
+@import '_components/_blockquote';
+@import '_components/_breadcrumbs';
+@import '_components/_btn';
+@import '_components/_bg';
+@import '_components/_content';
+@import '_components/_form';
+@import '_components/_container';
+@import '_components/_grid';
+@import '_components/_flex';
+@import '_components/_headline';
+@import '_components/_list';
+@import '_components/_media';
+@import '_components/_pagination';
+@import '_components/_table';
+@import '_components/_section';
+
+@import '_components/_col';
+@import '_components/_loading';
+
+@import '_components/_bg-media';
+@import '_components/_overlay';
+
+@import '_components/_social-media';
+
+// Vendor
+@import '_vendor/_animate';
+@import '_vendor/magnific/main';
+
+// Make sure this is last to override anything else :)
+@import '_helper';
