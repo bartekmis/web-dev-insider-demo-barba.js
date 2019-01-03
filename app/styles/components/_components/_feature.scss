@@ -1,0 +1,17 @@
+.feature {
+    text-align: center;
+    
+    &__image {
+        margin-bottom: 2.5em;
+    }
+
+    &__content {
+        @media (min-width: 1024px) {
+            padding: 0 2.7em;
+
+            .col-lg-3 & {
+                padding: 0;
+            }
+        }
+    }
+}

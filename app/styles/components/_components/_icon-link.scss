@@ -1,0 +1,36 @@
+.icon-link {
+    display: inline-block;
+
+    &__icon {
+        display: inline-block;
+        vertical-align: middle;
+        margin: {
+            top: -3px;
+            right: 0.5em;
+        }
+
+        transition: all 0.2s ease;
+    }
+
+    @each $colorName, $color in $colors {
+        &--#{$colorName} {
+            color: $color;
+
+            .icon-link__icon {
+                stroke: $color;
+            }
+        }
+    }
+
+    &:hover {
+        color: $colorMain;
+    }
+
+    &--icon-left {
+        &:hover {
+            .icon-link__icon {
+                transform: translateX(-5px);
+            }
+        }
+    }
+}

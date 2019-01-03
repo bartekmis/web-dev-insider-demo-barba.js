@@ -1,0 +1,21 @@
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 8;
+
+    width: 0%;
+
+    background-color: $colorMain;
+
+    transition: width 0.4s ease-in-out;
+
+    @media (max-width: 1023px) {
+        z-index: 1000;
+    }
+
+    &--opened {
+        width: 100%;
+    }
+}

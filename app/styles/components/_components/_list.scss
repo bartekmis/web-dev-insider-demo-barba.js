@@ -18,13 +18,13 @@ ul,
 
 .list-ul,
 .list-ol {
-    padding-top: 0.7em;
+    padding-top: 0.2em;
     padding-bottom: 0.7em;
 
     li {
-        padding: 1px 0 1px 0;
+        padding: 0.3em 0;
         position: relative;
-        margin-bottom: 2px;
+        //margin-bottom: 1em;
 
         &:before {
             position: absolute;
@@ -35,27 +35,54 @@ ul,
 
         &:last-child {
             padding-bottom: 0;
+            margin-bottom: 0;
         }
     }
+
+
 }
 
 // Unordered list
 .list-ul {
-    padding-left: 30px;
+    padding-left: 20px;
 
     li {
         &:before {
-            top: .2em;
-            left: -30px;
+            top: .25em;
+            left: -20px;
 
             width: 22px;
             height: 22px;
 
-            content: "•";
-            color: #222;
 
-            //background: url(../images/icons/icons_icon--tick.svg) top left no-repeat;
-            //background-size: 20px auto;
+            content: '•';
+            
+            .content.content--medium-text & {
+                top: 0.35em;
+            }
+
+            .content.content--large-text & {
+                top: 0.6em;
+            }
+
+            .content.content--super-large-text & {
+                top: 0.7em;
+            }
+        }
+    }
+
+    &--tick {
+        padding-left: 40px;
+
+        li {
+            &:before {
+                left: -40px;
+
+                content: '';
+                
+                background: url(../images/icons/tick.svg) top left no-repeat;
+                background-size: 18px auto;
+            }
         }
     }
 }
@@ -97,7 +124,7 @@ ul,
 .list-2-cols {
     li {
         @media (min-width: 501px) {
-            width: 47%;
+            width: 44%;
         }
     }
 }
@@ -105,7 +132,7 @@ ul,
 .list-3-cols {
     li {
         @media (min-width: 768px) {
-            width: 30%;
+            width: 27%;
         }
     }
 }

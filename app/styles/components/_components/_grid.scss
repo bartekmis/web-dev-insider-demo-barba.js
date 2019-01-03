@@ -27,6 +27,12 @@ $gutters: (20, 30, 40, 50);
                 right: $gutter * 1px;
                 bottom: $gutter * 1px;
               }
+
+              @media (max-width: 767px) {
+                &:last-child {
+                  padding-bottom: 0;
+                }
+              }
           }
       }
     }
@@ -1288,6 +1294,12 @@ $gutters: (20, 30, 40, 50);
   .align-items-center {
     -ms-flex-align: center !important;
     align-items: center !important;
+
+    > [class*="col-"] {
+      @media (min-width: 768px) {
+        padding-bottom: 0;
+      }
+    }
   }
   
   .align-items-baseline {

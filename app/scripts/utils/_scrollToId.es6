@@ -9,23 +9,28 @@
 
 var UTILS = UTILS || {};
 
-UTILS.scrollToID = function scrollToID(id, context = 'html,body') {
-    var offSet = 80;
-    var x = UTILS._screenSize().x;
-
+UTILS.scrollToID = function scrollToID(id, context = 'html,body', offSet = 80) {
+    var path = window.location.pathname;
+    var x = UTILS.screenSize().x;
+    
     if (x < 768) {
         offSet = 60;
     }
-    var targetOffset = $(id).offset().top - offSet;
 
-    $(context).animate({scrollTop:targetOffset}, 1000);
+    if ( $(id).length ) {
+        var targetOffset = $(id).offset().top - offSet;
+        $(context).animate({scrollTop:targetOffset}, 1000);
+    }
 };
 
 UTILS.hashAnchorClick = function hashAnchorClick() {
     $('a[href^="#"]:not(.js-scroll-to)').on('click', function (e) {
-
         var target = this.hash,
             hashValue = target.substr(target.indexOf("#"));
+
+        if (hashValue === '#contact') {
+            return true;
+        }
 
         if (hashValue.length) {
             UTILS.scrollToID( hashValue );

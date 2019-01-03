@@ -7,26 +7,65 @@
     p,
     li,
     td {
-        font-size: 1.25rem;
-        line-height: 1.4;
-        font-weight: 300;
-    }
-    
-    .content__small-text,
-    &--small-text p,
-    &--small-text li {
-        font-size: .852em;
+        font-size: rem(18px);
+        line-height: 1.5;
+        font-weight: 400;
     }
 
-    .content__large-text,
+    &__medium-text p,
+    &__medium-text li,
+    &--medium-text p,
+    &--medium-text li {
+        font-size: rem(20px);
+        line-height: 1.4;
+
+        @media (min-width: 1024px) {
+            font-size: rem(22px);
+        }
+    }
+
+    &__large-text p,
+    &__large-text li,
     &--large-text p,
     &--large-text li {
-        font-size: 1.4em;
+        font-size: rem(22px);
+        line-height: 1.25;
+
+        @media (min-width: 1024px) {
+            font-size: rem(28px);
+        }
+    }
+
+    &__super-large-text p,
+    &__super-large-text li,
+    &--super-large-text p,
+    &--super-large-text li {
+        font-size: rem(26px);
+        line-height: 1.3;
+
+        @media (min-width: 1024px) {
+            font-size: rem(35px);
+        }
+    }
+
+    &__small-text p,
+    &__small-text li,
+    &--small-text p,
+    &--small-text li {
+        font-size: rem(16px);
+        line-height: 1.4;
+    }
+
+    &--text-bold {
+        p,
+        li {
+            font-weight: 500;
+        }
     }
 
     p:not(:last-child) {
         margin: 0;
-        padding-bottom: .9em;
+        padding-bottom: 1.5em;
     }
 
     ul:not(:last-child),
@@ -44,12 +83,16 @@
 
     p + ul,
     p + ol {
-        //margin-top: -.7em !important;
+        margin-top: -0.5em !important;
     }
 
     /* uls, ols */
     ul {
         @extend .list-ul;
+    }
+
+    ul.list-ul--tick {
+        @extend .list-ul--tick;
     }
 
     ol {
@@ -58,5 +101,39 @@
 
     blockquote {
         @extend .blockquote;
+
+        background-color: $colorMain;
+        color: #fff;
+    }
+
+    .btn {
+        margin-bottom: 4px;
+    }
+
+    .col-80 {
+        img {
+            @media (min-width: 769px) {
+                width: 120%;
+                max-width: none;
+            }
+        }
+    }
+
+    table {
+        @extend .table;
+        table-layout: fixed;
+    }
+
+    img:not([src*=".svg"]) {
+        height: auto;
+    }
+
+    a:not(.btn):not(.underline-hover) {
+        color: $colorRed;
+        transition: color 0.2s ease;
+
+        &:hover {
+            color: $colorMain;
+        }
     }
 }

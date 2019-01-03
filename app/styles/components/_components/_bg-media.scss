@@ -13,7 +13,23 @@
 
     &--image {
         @extend %fullscreenLayer;
+        //background-size: cover;
+        background-position: center center;
         background-repeat: no-repeat;
+
+        &:not([class*="bg-"]) {
+            background-color: $colorMain;
+        }
+
+        img {
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+
+            @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+                height: auto;
+            }
+        }
     }
     
     &--edge-margin {
@@ -73,5 +89,14 @@
         @media (max-width: 1023px) {
             background-size: 80% auto;
         }
+    }
+
+    &[data-style].lazy {
+        opacity: 0;
+        transition: opacity 0.5s 0.2s ease;
+    }
+
+    &[data-style].lazy--loaded {
+        opacity: 1
     }
 }

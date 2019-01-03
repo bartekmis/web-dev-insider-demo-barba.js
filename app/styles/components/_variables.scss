@@ -5,10 +5,45 @@
 **/
 
 $columnsWidthSet: (10, 20, 25, 30, 33, 40, 50, 60, 67, 70, 75, 80, 90);
+$topNavbarHeight: 68px;
+$topNavbarHeightMobile: 60px;
+$sidebarWidth: 465px;
+$sidebarWidthNarrow: 260px;
 
 /* Colors */
 
-$colorMain: #222;
+$colorMain: #090B09;
+$colorLightBlue: #4280ff;
+$colorLightBlueV2: #2551aa;
+
+$colorGold: rgb(255, 246, 226);
+$colorGoldV2: rgb(235, 200, 121);
+
+$colorDarkBlue: rgb(44, 75, 212);
+$colorDarkBlueV2: #2738AF;
+
+$colorGrey: #B1B1B1;
+$colorDarkGrey: #707070;
+$colorLightGrey: #F3F2F2;
+$colorLightGrey2: #FAFAFA;
+
+$colorRed: #DD0A2B; // main
+$colorRed2: #FF5E67;
+$colorDarkRed: #DD0A2B;
+$colorDarkRed2: #FF5B4D;
+$colorBackupRed: #FF5C54;
+
+$colorGreen: #3ABC7F;
+$colorDarkGreen: #00A75E;
+
+$colorBlue: #5266FF;
+
+
+$colorPurple: #A980FA;
+$colorDarkPurple: #7A36FA;
+
+$colorYellow: #FEC142;
+$colorDarkYellow: #F3A80C;
 
 $socialMediaColors: (
     twitter: #4099ff, 
@@ -20,10 +55,13 @@ $socialMediaColors: (
 );
 
 $colors: (
-    white: #fff,
-    red: #d70000
+    ('light-blue', $colorLightBlue, $colorLightBlueV2),
+    ('gold', $colorGold, $colorGoldV2),
+    ('dark-blue', $colorDarkBlue, $colorDarkBlueV2),
+    ('white', #fff, #fff)
 );
 
 $bgColorsWhiteFont: (
-    red: #d70000
+    red: $colorRed,
+    black: $colorMain
 );

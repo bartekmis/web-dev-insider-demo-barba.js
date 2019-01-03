@@ -1,0 +1,30 @@
+.tabs {
+    display: flex;
+    flex-direction: row;
+
+    &__item {
+        flex: 1 auto;
+    }
+
+    &__link {
+        display: block;
+        width: 100%;
+
+        background-color: $colorMain;
+        padding: 0.75em 2em;
+
+        color: #fff;
+        font-size: rem(12px);
+        font-weight: 500;
+
+        transition: background-color 0.2s ease;
+    }
+
+    @each $colorName, $color in $colors {
+        &--active-link-#{$colorName} {
+            .tabs__link--active {
+                background-color: $color;
+            }
+        }
+    }
+}

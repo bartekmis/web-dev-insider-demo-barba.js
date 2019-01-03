@@ -1,11 +1,14 @@
 {
     "vendor": [
         "./node_modules/jquery/dist/jquery.min.js",
+        "./node_modules/barba.js/dist/barba.min.js",
         "./node_modules/waypoints/lib/noframework.waypoints.min.js",
+        "./node_modules/waypoints/lib/shortcuts/infinite.min.js",
         "./node_modules/magnific-popup/dist/jquery.magnific-popup.js",
-        "./app/scripts/vendor/svgxuse.js"
+        "./node_modules/owl.carousel/dist/owl.carousel.min.js",
+        "./node_modules/jquery-match-height/dist/jquery.matchHeight-min.js"
     ],
-
+ 
     "ownJs": [
         "./app/scripts/main.js",
         "./app/scripts/utils/_screenSize.es6",
@@ -15,6 +18,9 @@
         "./app/scripts/utils/_popup.es6",
         "./app/scripts/utils/_trackEvent.es6",
         "./app/scripts/utils/_form.es6",
+        "./app/scripts/svgxuse/svgxuse.js",
+        "./app/scripts/vendor/jquery.selectbox-0.2.js",
+        "./app/scripts/vendor/skrollr.js",
         "./app/scripts/app.es6"
     ],
 
@@ -22,9 +28,12 @@
 
     "body": [
         "scripts/jquery.min.js",
+        "scripts/barba.min.js",
         "scripts/noframework.waypoints.min.js",
+        "scripts/infinite.min.js",
         "scripts/jquery.magnific-popup.js",
-        "scripts/svgxuse.js",
+        "scripts/owl.carousel.min.js",
+        "scripts/jquery.matchHeight-min.js",
         "scripts/main.js",
         "scripts/_screenSize.js",
         "scripts/_scrollToId.js",
@@ -33,6 +42,9 @@
         "scripts/_popup.js",
         "scripts/_trackEvent.js",
         "scripts/_form.js",
+        "scripts/svgxuse.js",
+        "scripts/jquery.selectbox-0.2.js",
+        "scripts/skrollr.js",
         "scripts/app.js"
     ],
 

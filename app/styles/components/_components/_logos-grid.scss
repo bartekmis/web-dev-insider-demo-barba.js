@@ -1,0 +1,95 @@
+.logos-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    width: 100%;
+    margin: 0.5em auto;
+
+    text-align: center;
+
+    &--six {
+        .logos-grid__item {
+            width: 46%;
+            margin: {
+                left: 2%;
+                right: 2%;
+            }
+
+            @media (min-width: 568px) and (max-width: 1023px) {
+                width: 16%;
+            }
+
+            @media (min-width: 1024px) {
+                width: 10.5%;
+                margin: {
+                    left: 2.5%;
+                    right: 2.5%;
+                }
+            }
+        }
+    }
+
+    &--three {
+        .logos-grid__item {
+            width: 29.3%;
+            margin: {
+                left: 2%;
+                right: 2%;
+            }
+        }
+    }
+
+    &--two {
+        .logos-grid__item {
+            width: 47%;
+            margin: {
+                left: 1.5%;
+                right: 1.5%;
+            }
+        }
+    }
+
+    &__item {
+        transition: all 0.3s ease;
+    }
+
+    &__logo {
+        position: relative;
+        margin: 0;
+        height: 0;
+        padding-top: 100%;
+
+        &-img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+
+            background-size: 80% auto;
+            background-position: center;
+            background-repeat: no-repeat;
+
+            .logos-grid--two & {
+                background-size: 50% auto;
+            }
+        }
+
+        img {
+            opacity: 0;
+        }
+    }
+
+    &--greyed-out {
+        .logos-grid__item {
+            filter: grayscale(1);
+            opacity: 0.4;
+
+            &:hover {
+                filter: none;
+                opacity: 1;
+            }
+        }
+    }
+}

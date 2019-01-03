@@ -1,0 +1,50 @@
+.horizontal-menu {
+    list-style-type: none;
+    line-height: 1;
+
+    &__item,
+    &__link {
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    &__item {
+        line-height: 1;
+        
+        &:not(:last-child) {
+            margin-right: 1em;
+        }
+    }
+
+    &__link,
+    &__label {
+        font-size: rem(10px);
+
+        @media all and (max-width: 991px) {
+            padding: 8px 8px 8px 0;
+            font-size: rem(12px);
+        }
+    }
+
+    &__link {
+        background-color: transparent;
+        color: $colorMain;
+    }
+
+    &--text-right {
+        @media (min-width: 992px) {
+            text-align: right;
+        }
+    }
+
+    &--large-links {
+        .horizontal-menu__link,
+        .horizontal-menu__label {
+            font-size: rem(14.4px);
+
+            @media all and (max-width: 991px) {
+                font-size: rem(13px);
+            }
+        }
+    }
+}

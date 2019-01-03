@@ -1,8 +1,5 @@
 //==========  VARIABLES  ==========
 
-// Colors
-.color-main {color: $colorMain;}
-
 // Breakpoints
 $breakpointMobile: 768px;
 $breakpointTablet: 1024px;
@@ -38,11 +35,9 @@ $breakpointFullHD: 1920px;
 }
 
 $base-font-size: 16px;
-
 @function em($px, $base: $base-font-size) {
     @return ($px / $base) * 1em;
 }
-
 @function rem($px, $base: $base-font-size) {
     @return ($px / $base) * 1rem;
 }
@@ -52,9 +47,9 @@ $base-font-size: 16px;
     /////////////////////////////////////
     // NOTE:
     // To prevent overlapping closed ranges
-    // all 'min' values should be 'breakpoint + 1' (odd)
+    // all 'min' values should be 'breakepoint + 1' (odd)
     // and all 'max' values should be at 'breakepoint' (even).
-    // Examples of correct ranges: 1025-1920, 1025-1366, 769-1366 (where 'breakpoints' are 768, 1024, 1366, 1920)
+    // Examples of correct ranges: 1025-1920, 1025-1366, 769-1366 (where 'breakepoints' are 768, 1024, 1366, 1920)
     // Incorrect ranges: 1024 - 1920, 1024-1919, 1025-1919
 
     ////////////////////// Closed ranges

@@ -1,0 +1,60 @@
+.legend-box {
+    position: relative;
+    padding: 4em 3em;
+    margin: 2em 0;
+    width: 100%;
+
+    @media (max-width: 767px) {
+        margin: 4em 0;
+    }
+
+    &--narrow {
+        @media (min-width: 768px) {
+            max-width: 450px;
+        }
+    }
+
+    &--centred {
+        margin: {
+            left: auto;
+            right: auto;
+        }
+    }
+
+    &--full-height {
+        height: 100%;
+    }
+
+    &__tabs-nav {
+        position: absolute;
+        left: 0;
+        top: 0;
+
+        display: flex;
+        flex-direction: row;
+
+        transform: translateY(-50%);
+        
+        width: 100%;
+
+        &-item {
+            flex: 1 auto;
+            width: 100%;
+        }
+
+        &-tab {
+            background-color: $colorLightGrey;
+            color: $colorMain;
+
+            &--active {
+                color: #fff;
+            }
+        }
+
+        @each $colorName, $color in $colors {
+            &--active-tab-#{$colorName} .legend-box__tabs-nav-tab--active {
+                background-color: $color;
+            }
+        }
+    }
+}

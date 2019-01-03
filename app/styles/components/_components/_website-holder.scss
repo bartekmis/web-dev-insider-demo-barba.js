@@ -1,0 +1,75 @@
+.website-holder {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+
+    &__main {
+        background-color: $colorLightGrey;
+        transition: all 0.6s ease;
+
+        &--keep-width {
+            @media (min-width: 1024px) {
+                width: 106%;
+
+                .refinement {
+                    margin-right: calc(6% + 2em);
+                }
+            }
+            
+            position: relative;
+        }
+
+        .website-holder--open & {
+            @media (min-width: 1367px) {
+                padding-left: $sidebarWidth;
+            }
+
+            @media (min-width: 1024px) and (max-width: 1366px) {
+                padding-left: $sidebarWidthNarrow;
+            }
+        }
+
+        .barba-container > .l-main:first-child,
+        .barba-container > .l-header--simple:first-child {
+            margin-top: $topNavbarHeightMobile;
+
+            @media (min-width: 1024px) {
+                margin-top: $topNavbarHeight;
+            }
+
+            @media (min-width: 1024px) and (max-width: 1366px) {
+                padding-left: 40px;
+            }
+
+            @media (min-width: 1367px) {
+                //padding-left: 50px;
+            }
+
+            .website-holder--open & {
+                padding-left: 0;
+            }
+        }
+    }
+
+    &__footer {
+        //position: relative;
+        //width: 100%;
+        transition: all 0.6s ease;
+
+        .website-holder--open & {
+            @media (min-width: 1367px) {
+                margin-left: $sidebarWidth;
+            }
+
+            @media (min-width: 1024px) and (max-width: 1366px) {
+                margin-left: $sidebarWidthNarrow;
+            }
+        }
+    }
+}
+
+// hack for l-main which is right after header that is an owl carousel in fact
+.owl-carousel--fullscreen + .website-holder .website-holder__main > .l-main:first-child {
+    margin-top: 0;
+    margin-left: 0;
+}

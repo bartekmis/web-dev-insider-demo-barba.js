@@ -6,45 +6,75 @@
 
 .blockquote {
     margin: 1em 0;
-    padding: 5px 10px 10px 0;
+    padding: 2.5em;
 
     > p {
+        margin: 0;
         position: relative;
         font-size: 1.25rem;
+        font-weight: 500;
 
+        line-height: 1.35;
 
-        &:first-child:before,
-        &:first-child:after {
-            position: absolute;
-            font-size: 1.4em;
-            color: #fff;
-        }
-
-       &:first-child:before {
+        &:first-child:before {
             content: '\201C';
-            width: 25px;
-            height: 25px;
-
-            margin-top: -75px;
-
-            font-size: 5em;
-            font-weight: 600;
         }
 
         &:last-of-type:after {
-            position: absolute;
-            right: 0;
             content: '\201D';
-            width: 25px;
-            height: 25px;
-            bottom: 0;
 
-            font-size: 5em;
-            font-weight: 600;
         }
 
         &:last-of-type {
             margin-bottom: .5em;
         }
+    }
+
+    &--large {
+        padding: 2em 2em 1.5em 2em;
+
+        @media (min-width: 1024px) and (max-width: 1439px) {
+            padding: 3em 3em 2em 3em;
+        }
+
+        @media (min-width: 1440px) {
+            padding: 5em 5em 4em 5em;
+        }
+
+        > p {
+            font-size: rem(20px);
+            line-height: 1.2;
+
+            @media (min-width: 1024px) and (max-width: 1280px) {
+                font-size: rem(35px);
+            }
+
+            @media (min-width: 1281px) and (max-width: 1439px) {
+                font-size: rem(40px);
+            }
+
+            @media (min-width: 1440px) {
+                font-size: rem(50px);
+            }
+        }
+
+        .blockquote__footer {
+            margin-top: 3em;
+        }
+    }
+
+    &__footer {
+        margin-top: 1em;
+
+        @media (min-width: 768px) {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    }
+
+    &__logo {
+        max-height: 140px;
+        max-width: 50%;
     }
 }

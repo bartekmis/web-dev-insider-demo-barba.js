@@ -1,0 +1,70 @@
+.megamenu {
+    display: none;
+
+    position: fixed;
+    top: 50px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 10;
+
+    background-color: #fff;
+    border-bottom: 1px solid #f0f0f0;
+    
+    padding: 3.5em 3em 4.5em 3em;
+    
+    @media (max-width: 1023px) {
+        overflow-y: auto;
+    }
+
+    @media (min-width: 1024px) {
+        position: absolute;
+        top: 100%;
+        bottom: auto;
+    }
+
+    &__item,
+    &__link {
+        @media (max-width: 1023px) {
+            display: block;
+            width: 100%;
+        }
+
+        @media (min-width: 1024px) {
+            display: inline-block;
+        }
+    }
+
+    &__item {
+        opacity: 0;
+        vertical-align: top;
+
+        transition: all 0.3s ease;
+    }
+
+    &__link {
+        display: block;
+
+        padding: 1em;
+        
+        font-weight: 500;
+        font-size: rem(18px);
+        line-height: 1.3;
+        color: $colorMain;
+
+        transition: color 0.2s ease;
+
+        @media (min-width: 1024px) {
+            padding: 0.2em 3.5em 0.2em 0;
+        }
+
+        &:hover {
+            color: $colorDarkRed;
+        }
+    }
+
+    &__br {
+        display: block;
+    }
+}

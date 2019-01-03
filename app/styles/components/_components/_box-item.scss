@@ -1,0 +1,44 @@
+.box-item {
+    margin-bottom: 2em;
+
+    @media (min-width: 1025px) {
+        margin-bottom: 4em;
+    }
+
+    &__link {
+        display: block;
+        color: $colorMain;
+
+        &:hover {
+            color: $colorRed;
+
+            .box-item__img {
+                opacity: 0.9;
+            }
+        }
+    }
+
+    &__headline {
+        margin-bottom: 0.5em;
+    }
+
+    &__img {
+        margin: 2em 0 0 0;
+        height: 0;
+        padding-top: calc(600 / 850 * 100%);
+
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+
+        transition: opacity 0.3s ease;
+
+        &--gif {
+            background-size: contain;
+        }
+
+        img {
+            display: none;
+        }
+    }
+}

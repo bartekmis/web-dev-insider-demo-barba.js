@@ -1,0 +1,14 @@
+.horizontal-bar {
+    padding: 1.5em 7.5%;
+    
+    @media (min-width: 1024px) {
+        padding: 1.5em 2em;
+
+        .website-holder--open & {
+            padding: {
+                left: 5em;
+                right: 5em;
+            }
+        }
+    }
+}

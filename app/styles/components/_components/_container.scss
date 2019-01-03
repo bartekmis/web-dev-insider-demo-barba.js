@@ -1,19 +1,35 @@
-
-$mainContainerMaxWidth: 1280;
-$narrowContainerMaxWidth: 850;
-$largeContainerMaxWidth: 1500;
+$mainContainerMaxWidth: 930;
+$narrowContainerMaxWidth: 690;
+$superNarrowContainerMaxWidth: 400;
+$mediumContainerMaxWidth: 1090;
+$tinyContainerMaxWidth: 810;
+$largeContainerMaxWidth: 1220;
 
 .container {
-    position: relative;
     margin-right: auto;
     margin-left: auto;
 
-    width: 92%;
+    width: 85%;
     max-width: ($mainContainerMaxWidth)+px;
 
     &-narrow {
         @extend .container;
         max-width: ($narrowContainerMaxWidth)+px;
+    }
+
+    &-super-narrow {
+        @extend .container;
+        max-width: ($superNarrowContainerMaxWidth)+px;
+    }
+
+    &-medium {
+        @extend .container;
+        max-width: ($mediumContainerMaxWidth)+px;
+    }
+
+    &-tiny {
+        @extend .container;
+        max-width: ($tinyContainerMaxWidth)+px;
     }
 
     &-large {
@@ -25,5 +41,26 @@ $largeContainerMaxWidth: 1500;
         padding-left: 0;
         padding-right: 0;
         overflow-x: hidden;
+    }
+}
+
+.container-left-aligned {
+    width: 100%;
+    
+    @media (min-width: 1440px) {
+        max-width: 870px;
+        width: 90%;
+    }
+}
+
+.website-holder:not(.website-holder--open) .container-left-aligned {
+    @media (min-width: 1367px) {
+        margin-left: 50px;
+    }
+}
+
+.website-holder:not(.website-holder--open) .padded .container-left-aligned {
+    @media (min-width: 1367px) {
+        margin-left: 0;
     }
 }

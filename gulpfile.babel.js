@@ -208,7 +208,7 @@ task('styles:dev', (cb) => {
 // to enable ES2015 support remove the line `"only": "gulpfile.babel.js",` in the
 // `.babelrc` file.
 task('scripts', (cb) => {
-  src(jsVendorConfig.vendor.concat(jsVendorConfig.ownJs))
+  src(jsVendorConfig.ownJs)
     //.pipe($.newer('.tmp/scripts'))
     .pipe($.sourcemaps.init())
     .pipe($.babel())
@@ -224,12 +224,40 @@ task('scripts', (cb) => {
   cb();
 });
 
+task('scripts:vendor', (cb) => {
+  src(jsVendorConfig.vendor)
+    //.pipe($.newer('.tmp/scripts'))
+    .pipe($.sourcemaps.init())
+    .pipe($.babel())
+    .pipe($.sourcemaps.write())
+    .pipe(dest('.tmp/scripts'))
+    .pipe($.concat('vendor.min.js'))
+    .pipe($.uglify({preserveComments: false}))
+    // Output files
+    .pipe($.size({title: 'scripts'}))
+    .pipe($.sourcemaps.write('.'))
+    .pipe(dest('dist/scripts'))
+    .pipe(dest('.tmp/scripts'));
+  cb();
+});
+
+// Copy Vendor Script from app/scripts that you want to load separately, not concatenated to main.min.js
+task('scripts:vendor-copy', (cb) => {
+    src([
+        'app/scripts/vendor/lazyload/lazyload.min.js', 
+        'app/scripts/vendor/lazyload/lazyload-intersection-observer.min.js'
+      ])
+      .pipe(dest('dist/scripts'))
+      .pipe(dest('.tmp/scripts'));
+    cb();
+});
+
 // Concatenate minified Barba.js with uglified and minified scripts from dist/main.min.js (created via `scripts` task)
 // to fix some of the IE11 issues (minified Barba.js cannot be uglified with the rest of the scripts).
 // If you use Barba.js in your project, please run this task in `gulp` build task after the lint, html and scripts tasks
 task('scripts-merge-with-barba', (cb) => {
-  src(['./node_modules/barba.js/dist/barba.min.js', './dist/scripts/main.min.js'])
-    .pipe($.concat('main.min.js'))
+  src(['./node_modules/barba.js/dist/barba.min.js', './dist/scripts/vendor.min.js'])
+    .pipe($.concat('vendor.min.js'))
     .pipe(dest('dist/scripts'))
     .pipe(dest('.tmp/scripts'));
   cb();
@@ -344,7 +372,7 @@ const watchTemplates = () => watch(['app/*.html'], series('templates', reload));
 const watchScripts = () => watch(['app/scripts/**/*.js', 'app/scripts/**/*.es6'], series('scripts:serve', reload));
 
 task('watch', parallel(serve, watchStyles, watchTemplates, watchScripts));
-task('buildForDev', series('styles:dev', 'templates', 'scripts:dev', 'copyFontsDev', 'copyImagesDev', 'svgstore'));
+task('buildForDev', series('styles:dev', 'templates', 'scripts:vendor-copy', 'scripts:dev', 'copyFontsDev', 'copyImagesDev', 'svgstore'));
 task('serve', series('buildForDev', 'watch'));
 
 // Build production files, the default task
@@ -352,16 +380,17 @@ task('default', series(
   'clean', 
   series(
     'styles',
-    'jsLinter', 
     'html', 
+    'scripts:vendor',
     'scripts',
-    //'scripts-merge-with-barba',
+    'scripts:vendor-copy',
     'images',
     'svgstore',
     'copy',
     'copy-fonts',
     'templates-build',
   ),
+  'scripts-merge-with-barba',
   'generate-service-worker'
 ));
 

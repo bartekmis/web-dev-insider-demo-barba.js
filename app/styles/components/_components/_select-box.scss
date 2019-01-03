@@ -1,0 +1,170 @@
+
+.sbHolder {
+    display: inline-block !important;
+    background-color: rgba(255, 255, 255, 1);
+    height: 38px;
+    position: relative;
+    //z-index: 4;
+    width: 100%;
+    text-align: left;
+
+    @media (min-width: 768px) {
+        height: 42px;
+    }
+
+    &.selected {
+        .sbSelector {
+            color: $colorMain;
+        }
+    }
+
+    + .js-select + .sbHolder,
+    + .js-select-filter + .sbHolder {
+        margin-left: 1em;
+
+        @media all and (max-width: 768px) {
+            margin-left: 0;
+        }
+    }
+
+    + .btn {
+        position: relative;
+        top: -17px;
+        margin-left: 1em;
+
+        @media all and (max-width: 768px) {
+            top: 0;
+            margin-left: 0;
+        }
+    }
+
+}
+
+.sbsbHolder-inline + .sbHolder {
+    width: 50%;
+
+    @media all and (max-width: 1024px) {
+        width: 90%;
+    }
+}
+
+
+.sbHolder:focus .sbSelector{
+
+}
+.sbSelector{
+    display: block;
+    height: 42px;
+    left: 0;
+    line-height: 42px;
+    outline: none;
+    overflow: hidden;
+    position: absolute;
+    //z-index: 10;
+    padding: 0 40px 0 1.0em;
+    top: 0;
+    width: 100%;
+}
+.sbSelector:link,
+.sbSelector:visited,
+.sbSelector:hover{
+    color: $colorMain;
+    outline: none;
+    text-decoration: none;
+}
+.sbToggle{
+    background: url(../images/icons/filter-arrows.svg) no-repeat center center rgba(255, 255, 255, 0.2);
+    background-size: 10px auto;
+    display: block;
+    height: 42px;
+    outline: none;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 1;
+    width: 42px;
+}
+
+.sbHolderDisabled{
+    background-color: #3C3C3C;
+    border: solid 1px #00a0e3;
+}
+.sbHolderDisabled .sbHolder{
+
+}
+.sbHolderDisabled .sbToggle{
+
+}
+.sbOptions{
+    background-color: $colorMain;
+    list-style: none;
+    left: 0;
+    margin: 0;
+    padding: 10px 0 !important;
+    position: absolute;
+    top: 30px;
+    width: 100%;
+    z-index: 2;
+    overflow-y: auto;
+}
+.sbOptions li{
+    padding: 0 1em !important;
+    transition: background-color 0.2s ease;
+
+    &:before {
+        background: none !important;
+        display: none !important;
+    }
+
+    &:hover {
+        background-color: $colorRed;
+
+        a {
+            color: #fff !important;
+        }
+    }
+}
+.sbOptions a {
+    display: block;
+    outline: none;
+    padding: 12px 0;
+    line-height: 1.1;
+    color: #fff;
+}
+.sbOptions a:link, .sbOptions a:visited{
+    color: #fff;
+    text-decoration: none;
+}
+.sbOptions a:hover,
+.sbOptions a:focus,
+.sbOptions a.sbFocus{
+}
+.sbOptions li.last a{
+    border-bottom: none;
+}
+.sbOptions .sbDisabled{
+    color: #999;
+    display: block;
+    padding: 7px 0 7px 3px;
+}
+.sbOptions .sbGroup{
+    color: #EBB52D;
+    display: block;
+    font-weight: bold;
+    padding: 7px 0 7px 3px;
+}
+.sbOptions .sbSub{
+    padding-left: 17px;
+}
+
+.sbOptions .selected {
+    background-color: $colorRed;
+
+    a {
+        color: #fff !important;
+    }
+}
+
+.hidden + .sbHolder {
+    display: none;
+}

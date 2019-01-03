@@ -5,18 +5,30 @@
 **/
 
 .table {
+    width: 100%;
     text-align: left;
 
     td,
     th {
-        padding: 10px;
-        border: 1px solid #ccc;
+        padding: 0.8em 1em;
+        background-color: #fff;
+        border: 1px solid rgb(238, 238, 238);
         border-collapse: collapse;
     }
 
+    td {
+        word-wrap: break-word;
+    }
+
     thead {
-        background: #ccc;
-        color: #666;
         font-weight: 600;
+
+        td {
+            background-color: rgb(236, 236, 236);
+        }
+    }
+    
+    &__col-40 {
+        width: 40%;
     }
 }

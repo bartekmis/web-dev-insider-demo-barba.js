@@ -1,0 +1,30 @@
+.refinement {
+    @media (min-width: 992px) {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    margin-bottom: 3em;
+
+    &__right {
+        flex: 0 0 60%;
+        margin-top: 2em;
+
+        @media (min-width: 992px) {
+            margin-top: 0;
+        }
+
+
+        &--equal-width {
+            @media (min-width: 992px) {
+                display: flex;
+                justify-content: space-between;
+    
+                > * {
+                    flex: 0 0 48%;
+                }
+            }
+        }
+    }
+}

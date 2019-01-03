@@ -1,18 +1,50 @@
+%whiteContent {
+    color: #fff;
+
+    ul.list-ul--tick li:before {
+        background: url(../images/icons/tick-white.svg) top left no-repeat;
+    }
+}
+
 .bg {
     @each $colorName, $color in $colors {
         &-#{$colorName} {
             background-color: $color;
 
-            @if map-has-key($bgColorsWhiteFont, $colorName) {
-                .content ul li:before,
-                &.content ul li:before {
-                    background-image: url(../images/list-white-arrow.svg);
-                }
-            }
         }
 
         &-transparent-#{$colorName} {
             background-color: rgba($color, 0.8);
         }
+    }
+
+    // gradients
+    @each $colorName, $colorDefault, $colorDark in $colors {
+        @if $colorName != 'red' {
+            &-gradient-#{$colorName} {
+                background: rgba($colorDefault,1);
+                background: linear-gradient(90deg, rgba($colorDefault,1) 0%, rgba($colorDark,1) 100%);
+
+                color: #fff;
+            }
+        }
+        @else {
+            // red gradient
+            &-gradient-red {
+                background: rgba($colorRed2,1);
+                background: linear-gradient(90deg, rgba($colorRed2,1) 0%, rgba($colorDarkRed2,1) 100%);
+
+                color: #fff;
+            }
+        }
+    }
+
+
+    &-black {
+        background-color: $colorMain;
+    }
+
+    &-white {
+        color: $colorMain;
     }
 }

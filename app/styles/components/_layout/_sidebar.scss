@@ -1,0 +1,141 @@
+.l-sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    z-index: 8;
+    overflow: hidden;
+    width: 100%;
+    
+
+    background-color: $colorMain;
+
+    transition: width 0.4s ease;
+
+    @media (max-width: 1023px) {
+        right: 100%;
+        padding: 80px 30px;
+        
+        transition: right 0.6s ease;
+    }
+
+    @media (min-width: 1024px) {
+        left: 0;
+        width: 0;
+        display: flex;
+        align-items: center;
+    }
+
+    .website-holder--open & {
+        @media (min-width: 1024px) {
+            width: $sidebarWidth;
+        }
+        
+        @media (min-width: 1024px) and (max-width: 1366px) {
+            width: $sidebarWidthNarrow;
+        }
+    }
+
+    &__menu {
+        padding: 2em;
+        opacity: 0;
+        transition: opacity 0.1s ease;
+
+        @media (min-width: 1024px) {
+            padding: 2em 110px;
+            margin-top: 70px;
+        }
+
+        @media (min-width: 1024px) and (max-width: 1366px) {
+            padding: {
+                left: 60px;
+                right: 10px;
+            }
+        }
+
+        .website-holder--open & {
+            opacity: 1;
+            transition: opacity 0.3s 0.4s ease;
+        }
+
+        &-item,
+        &-link,
+        &-headline {
+            display: block;
+            width: 100%;
+        }
+
+        &-link,
+        &-headline {
+            color: #fff;
+            font-size: rem(28px);
+            line-height: 1.25;
+
+            &--main {
+                font-weight: 500;
+            }
+        }
+
+        &-headline {
+            margin-bottom: 0.25em;
+        }
+
+        &-item {
+
+            &--main {
+                margin-bottom: 2em;
+            }
+        }
+
+        &-sup {
+            position: relative;
+            top: -15px;
+            left: -7px;
+            
+            font: {
+                size: rem(10px);
+                weight: 500;
+            }
+        }
+        
+        &--with-submenu {
+            padding: 0;
+            margin: 0.1em 0;
+        }
+    }
+
+    &--open {
+        @media (max-width: 1023px) {
+            right: 0;
+            
+            text-align: center;
+
+            overflow-y: scroll;
+            -webkit-overflow-scrolling: touch;
+
+            transition: right 0.3s ease;
+        }
+    }
+
+    &__close-button {
+        position: fixed;
+        top: 80px;
+        left: 10px;
+
+        background-color: transparent;
+        opacity: 0;
+        visibility: hidden;
+
+        transition: opacity 0.3s, visibility 0.2s;
+
+        svg {
+            stroke: #fff;
+        }
+
+        .l-sidebar--open & {
+            opacity: 1;
+            visibility: visible;
+
+            transition: opacity 0.3s, visibility 0.2s;
+        }
+    }
+}

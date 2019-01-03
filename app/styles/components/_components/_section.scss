@@ -1,24 +1,21 @@
 .section {
     position: relative;
-
+    @include clearfix();
+    
     // default padding
     padding: {
-        top: 60px;
-        bottom: 60px;
+        top: 50px;
+        bottom: 50px;
     }
 
-    // padding variations
+    @media (min-width: 1280px) {
+        padding: {
+            top: 60px;
+            bottom: 60px;
+        }
+    }
+
     &--p-small {
-        &-top {
-            padding-top: 20px;
-        }
-
-        &-bottom {
-            padding-bottom: 20px;
-        }
-    }
-
-    &--p-medium {
         &-top {
             padding-top: 40px;
         }
@@ -26,15 +23,65 @@
         &-bottom {
             padding-bottom: 40px;
         }
+        
+        @media (min-width: 1280px) and (max-width: 1439px) {
+            &-top {
+                padding-top: 60px;
+            }
+
+            &-bottom {
+                padding-bottom: 60px;
+            }
+        }
+        
+        @media (min-width: 1440px) {
+            &-top {
+                padding-top: 80px;
+            }
+
+            &-bottom {
+                padding-bottom: 80px;
+            }
+        }
     }
 
     &--p-large {
         &-top {
-            padding-top: 80px;
+            padding-top: 250px;
         }
 
         &-bottom {
-            padding-bottom: 80px;
+            padding-bottom: 250px;
+        }
+    }
+
+    &--p-medium {
+        &-top {
+            padding-top: 70px;
+        }
+
+        &-bottom {
+            padding-bottom: 70px;
+        }
+
+        @media (min-width: 1280px) and (max-width: 1439px) {
+            &-top {
+                padding-top: 90px;
+            }
+
+            &-bottom {
+                padding-bottom: 90px;
+            }
+        }
+
+        @media (min-width: 1440px) {
+            &-top {
+                padding-top: 130px;
+            }
+
+            &-bottom {
+                padding-bottom: 130px;
+            }
         }
     }
 
@@ -48,21 +95,52 @@
         }
     }
 
-    // header + footer
-    &__header {
-        padding-bottom: 2em;
+    &--p-negative {
+        &-top {
+
+            @media (min-width: 1280px) {
+                margin-top: -230px;
+            }
+        }
     }
 
+    //
+
+    &__header,
     &__footer {
-        padding-top: 2em;
+        text-align: center;
+    }
+
+    &__header {
+        padding-bottom: 1.5em;
     }
     
-    // useful
+    &__footer {
+        padding-top: 1.5em;
+    }
+
+    &__intro-img {
+        margin: 0 auto 3em auto;
+        width: 70%;
+
+        &--small {
+            @media (min-width: 768px) {
+                width: 40%;
+            }
+        }
+    }
+
+    &--fullscreen {
+        @media (min-width: 1024px) and (orientation: landscape) {
+            min-height: 100vh;
+        }
+    }
+
     &--vertically-aligned {
         display: flex;
         align-items: center;
     }
-    
+
     &--btns-on-bottom {
         [class*="col-"] {
             padding-bottom: 100px;
@@ -71,6 +149,19 @@
         .btn {
             position: absolute;
             bottom: 30px;
+        }
+    }
+
+    &__sticky-to-top {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+
+        + * {
+            @media (max-width: 768px) {
+                padding-top: 2em;
+            }
         }
     }
 }

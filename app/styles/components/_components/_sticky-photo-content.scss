@@ -1,0 +1,51 @@
+.sticky-photo-content {
+    position: relative;
+
+    &__img {
+        margin: 0;
+        width: 100%;
+    
+        background-size: cover;
+        background-position: center right;
+
+        @media (min-width: 1024px) {
+            width: 70%;
+            max-height: 70vh;
+
+            &--left {
+                margin-right: 30%;
+            }
+    
+            &--right {
+                margin-left: 30%;
+            }
+        }
+
+        img {
+            width: 100%;
+            opacity: 0;
+        }
+    }
+
+    &__content {
+        @media (max-width: 1023px) {
+            margin-bottom: 2em;
+        }
+
+        @media (min-width: 1024px) {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+
+            &--top-with-margin {
+                bottom: auto;
+                top: 7%;
+            }
+
+            &--bottom-with-margin {
+                bottom: 7%;
+            }
+        }
+    }
+}
