@@ -30,39 +30,6 @@
         }
     }
 
-    &--large {
-        padding: 2em 2em 1.5em 2em;
-
-        @media (min-width: 1024px) and (max-width: 1439px) {
-            padding: 3em 3em 2em 3em;
-        }
-
-        @media (min-width: 1440px) {
-            padding: 5em 5em 4em 5em;
-        }
-
-        > p {
-            font-size: rem(20px);
-            line-height: 1.2;
-
-            @media (min-width: 1024px) and (max-width: 1280px) {
-                font-size: rem(35px);
-            }
-
-            @media (min-width: 1281px) and (max-width: 1439px) {
-                font-size: rem(40px);
-            }
-
-            @media (min-width: 1440px) {
-                font-size: rem(50px);
-            }
-        }
-
-        .blockquote__footer {
-            margin-top: 3em;
-        }
-    }
-
     &__footer {
         margin-top: 1em;
 

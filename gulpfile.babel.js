@@ -390,7 +390,7 @@ task('default', series(
     'copy-fonts',
     'templates-build',
   ),
-  'scripts-merge-with-barba',
+  //'scripts-merge-with-barba',
   'generate-service-worker'
 ));
 

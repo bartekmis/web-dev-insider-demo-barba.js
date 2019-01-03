@@ -2,7 +2,7 @@
     display: none;
 
     position: fixed;
-    top: 50px;
+    top: $topNavbarHeight;
     bottom: 0;
     left: 0;
     right: 0;
@@ -60,7 +60,7 @@
         }
 
         &:hover {
-            color: $colorDarkRed;
+            color: $colorDarkBlue;
         }
     }
 

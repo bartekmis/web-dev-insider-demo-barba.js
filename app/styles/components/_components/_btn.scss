@@ -42,7 +42,11 @@
                     color: $colorMain;
                 }
 
-                @if $colorName != 'gold' {
+                @if $colorName = 'white' {
+                    color: #000;
+                }
+
+                @if $colorName != 'gold' and $colorName != 'white' {
                     color: #fff;
                 }
 

@@ -12,6 +12,10 @@
         height: 100vh;
         border-bottom: 2px solid #fff;
 
+        @media (min-width: 1280px) {
+            min-height: 730px;
+        }
+
         @supports (-webkit-overflow-scrolling: touch) {
             height: calc(var(--vh, 1vh) * 100);
         }
@@ -36,7 +40,7 @@
 
     &__vertical-middle {
         width: 100%;
-        height: inherit;
+        height: 100%;
         padding-top: $topNavbarHeight/2;
 
         display: flex;

@@ -1,7 +1,6 @@
 {
     "vendor": [
         "./node_modules/jquery/dist/jquery.min.js",
-        "./node_modules/barba.js/dist/barba.min.js",
         "./node_modules/waypoints/lib/noframework.waypoints.min.js",
         "./node_modules/waypoints/lib/shortcuts/infinite.min.js",
         "./node_modules/magnific-popup/dist/jquery.magnific-popup.js",
@@ -28,7 +27,6 @@
 
     "body": [
         "scripts/jquery.min.js",
-        "scripts/barba.min.js",
         "scripts/noframework.waypoints.min.js",
         "scripts/infinite.min.js",
         "scripts/jquery.magnific-popup.js",

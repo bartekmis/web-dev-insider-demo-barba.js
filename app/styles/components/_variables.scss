@@ -22,28 +22,19 @@ $colorGoldV2: rgb(235, 200, 121);
 $colorDarkBlue: rgb(44, 75, 212);
 $colorDarkBlueV2: #2738AF;
 
+$colorPurple: rgb(86, 33, 172);
+$colorPurpleV2: rgb(56, 21, 112);
+
+$colorGreen: rgb(31, 150, 77);
+$colorGreenV2: rgb(5, 104, 61);
+
 $colorGrey: #B1B1B1;
 $colorDarkGrey: #707070;
 $colorLightGrey: #F3F2F2;
 $colorLightGrey2: #FAFAFA;
 
-$colorRed: #DD0A2B; // main
-$colorRed2: #FF5E67;
-$colorDarkRed: #DD0A2B;
-$colorDarkRed2: #FF5B4D;
-$colorBackupRed: #FF5C54;
+$colorRed: #e1306c;
 
-$colorGreen: #3ABC7F;
-$colorDarkGreen: #00A75E;
-
-$colorBlue: #5266FF;
-
-
-$colorPurple: #A980FA;
-$colorDarkPurple: #7A36FA;
-
-$colorYellow: #FEC142;
-$colorDarkYellow: #F3A80C;
 
 $socialMediaColors: (
     twitter: #4099ff, 
@@ -58,6 +49,8 @@ $colors: (
     ('light-blue', $colorLightBlue, $colorLightBlueV2),
     ('gold', $colorGold, $colorGoldV2),
     ('dark-blue', $colorDarkBlue, $colorDarkBlueV2),
+    ('green', $colorGreen, $colorGreenV2),
+    ('purple', $colorPurple, $colorPurpleV2),
     ('white', #fff, #fff)
 );
 
