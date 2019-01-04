@@ -10,14 +10,13 @@
 var UTILS = UTILS || {};
 
 UTILS.scrollToID = function scrollToID(id, context = 'html,body', offSet = 80) {
-    var path = window.location.pathname;
-    var x = UTILS.screenSize().x;
+    let x = UTILS.screenSize().x;
     
     if (x < 768) {
         offSet = 60;
     }
 
-    if ( $(id).length ) {
+    if ($(id).length) {
         var targetOffset = $(id).offset().top - offSet;
         $(context).animate({scrollTop:targetOffset}, 1000);
     }

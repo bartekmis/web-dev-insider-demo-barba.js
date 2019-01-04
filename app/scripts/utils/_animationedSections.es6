@@ -20,7 +20,7 @@ function animateCascade(row) {
 
         time = time + 200;
     });
-};
+}
 
 UTILS.animationedSections = function animationedSections() {
     var animation = {

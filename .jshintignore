@@ -1,0 +1,2 @@
+./app/scripts/vendor/**/*
+./app/scripts/utils/_animationedSections.es6

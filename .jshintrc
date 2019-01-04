@@ -36,6 +36,7 @@
         "angular":false,
         "module": true,
         "JSON": true,
-        "Waypoint": true
+        "Waypoint": true,
+        "google": true
     }
 }

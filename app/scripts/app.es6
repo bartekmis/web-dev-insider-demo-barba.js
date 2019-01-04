@@ -1,7 +1,7 @@
 'use strict';
 
-let WDI = WDI || {};
-let UTILS = UTILS || {};
+var WDI = WDI || {};
+var UTILS = UTILS || {};
 let googleMapLoaded = false;
 
 WDI.utils = UTILS || {};
@@ -189,7 +189,7 @@ WDI.megamenu = {
                 }
     
                 megamenu.slideToggle();
-                megamenu.addClass('megamenu--active')
+                megamenu.addClass('megamenu--active');
                 WDI.megamenu.animateCascadeItems({items: megamenuItems, open: true});
 
                 // enable "back" button on mobile
@@ -240,7 +240,7 @@ WDI.sliders = {
                 settings.autoplayTimeout = autoplayTimeout;
             }
     
-            $(slider).owlCarousel(settings)
+            $(slider).owlCarousel(settings);
         });
     },
     init: function() {
@@ -399,12 +399,6 @@ WDI.map = {
 
                 var mapElement = mapObj;
                 var map = new google.maps.Map(mapElement, mapOptions);
-                var marker = new google.maps.Marker({
-                    title: '',
-                    position: map.getCenter(),
-                    map: map
-                });
-
                 google.maps.event.addDomListener(window, 'resize', function() {
                     var center = map.getCenter();
                     google.maps.event.trigger(map, 'resize');
@@ -415,6 +409,7 @@ WDI.map = {
         init();
     },
     initMap: function() {
+        /* jshint ignore:start */
         if ($('.js-map:not(.js-map-on-demand)').length) {
             const mapWaypoint = new Waypoint({
                 element: $('.js-map')[0],
@@ -426,6 +421,7 @@ WDI.map = {
                 offset: '80%'
             });
         }
+        /* jshint ignore:end */
     }
 };
 

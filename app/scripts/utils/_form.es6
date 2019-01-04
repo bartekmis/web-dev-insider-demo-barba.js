@@ -10,8 +10,7 @@
 var UTILS = UTILS || {};
 
 UTILS.form = function form(form, url) {
-    let data = $(form).serialize(),
-        loading = true;
+    let data = $(form).serialize();
 
     $(form).find('.loading').fadeIn();
     $(form).find('button[type="submit"]').text('Sending...');
@@ -45,13 +44,13 @@ UTILS.form = function form(form, url) {
     }, function(response) {
         let errorMessage = '';
 
-        if (response.status == 422) {
+        if (response.status === 422) {
             for (var field in response.responseJSON) {
                 if (response.responseJSON.hasOwnProperty(field)) {
                     errorMessage += response.responseJSON[ field ].join('<br>') + '<br>';
                 }
             }
-        } else if (response.status == 404) {
+        } else if (response.status === 404) {
             errorMessage = 'Page not found - incorrect url.';
         } else if (response.responseJSON.message) {
             errorMessage = response.responseJSON.message;
