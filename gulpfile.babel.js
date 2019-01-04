@@ -103,8 +103,12 @@ task('templates', (cb) => {
   cb();
 });
 
+// templates build
 task('templates-build', (cb) => {
   src('dist/*.html')
+    .pipe(replace('@HeadJS', scriptHtmlHead))
+    .pipe(replace('@BodyJS', scriptHtmlBody))
+    .pipe(replace('@Timestamp', Date.now() ))
     .pipe(dest('dist/'));
   cb();
 });
@@ -296,6 +300,19 @@ task('html', (cb) => {
       searchPath: '{.tmp,app}',
       noAssets: true
     }))
+
+    // Minify any HTML
+    .pipe($.if('*.html', $.htmlmin({
+      removeComments: true,
+      collapseWhitespace: true,
+      collapseBooleanAttributes: true,
+      removeAttributeQuotes: true,
+      removeRedundantAttributes: true,
+      removeEmptyAttributes: true,
+      removeScriptTypeAttributes: true,
+      removeStyleLinkTypeAttributes: true,
+      removeOptionalTags: true
+    })))
     // Output files
     .pipe(replace('@BodyJS', ''))
     .pipe($.if('*.html', $.size({title: 'html', showFiles: true})))
