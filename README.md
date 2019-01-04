@@ -1,4 +1,11 @@
-## Overview
+# What is it?
+It is a demo for the free whitepaper that you can download here (link very soon).
+
+Demo:
+1. Without Barba.js (branch: master): https://www.webdevinsider.pl/demo/barba.js/before/
+2. With Barba.js (branch *soon*): link soon
+
+## A few words about the boilerplate / starter kit
 
 This demo is based on Bigger Picture / Studio Sidekicks boilerplate that has been created based on [Web Starter Kit](https://developers.google.com/web/tools/starter-kit/) - an opinionated boilerplate for web development. Unfortunately Google is no longer supporting and developing that project so we have decided to start keeping that up-to-date by ourselves. We upgraded all the tools and now it uses new Gulp 4.0.0 and Babel 7.2 to transpile the ES7+ scripts.
 
