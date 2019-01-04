@@ -3,6 +3,7 @@
 var WDI = WDI || {};
 var UTILS = UTILS || {};
 let googleMapLoaded = false;
+const googleMapsApiKey = 'AIzaSyDRW_jEr6N_0BCjboAATfun4sZVdvmcfVo';
 
 WDI.utils = UTILS || {};
 
@@ -254,7 +255,7 @@ WDI.map = {
         if (!googleMapLoaded) {
             var script = document.createElement('script');
             script.type = 'text/javascript';
-            script.src = 'https://maps.googleapis.com/maps/api/js?v=3&key=AIzaSyAanzKjF6LiHz-vILwxR2Tp_X4IFjeuVmo&' +
+            script.src = `https://maps.googleapis.com/maps/api/js?v=3&key=${googleMapsApiKey}&` +
                 'callback=WDI.map.load';
             document.body.appendChild(script);
             googleMapLoaded = true;
