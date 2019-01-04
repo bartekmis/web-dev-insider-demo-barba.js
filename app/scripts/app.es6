@@ -473,7 +473,6 @@ function runWebsiteScripts() {
 
 runWebsiteScripts();
 
-
 window.addEventListener('resize', () => {
     setTimeout(function() {
         Waypoint.refreshAll();

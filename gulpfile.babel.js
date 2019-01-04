@@ -78,7 +78,6 @@ function reload(done) {
   done();
 }
 
-
 var scriptHtmlHead = ' ',
   scriptHtmlBody = ' ';
 
@@ -94,6 +93,7 @@ if (jsVendorConfig.body.length) {
   }
 }
 
+// templates - variables replacement
 task('templates', (cb) => {
   src('app/*.html')
     .pipe(replace('@HeadJS', scriptHtmlHead))
@@ -138,7 +138,6 @@ task('copyFontsDev', (cb) => {
     .pipe(dest('.tmp/fonts'));
   cb();
 });
-
 
 // Copy all files at the root level (app)
 task('copy', (cb) => 
@@ -263,7 +262,7 @@ task('scripts-merge-with-barba', (cb) => {
   cb();
 });
 
-// scripts just for develop - without minification and concatenation
+// transpilation only own JS files
 task('scripts:dev', (cb) => {
   src(
       jsVendorConfig.vendor.concat(jsVendorConfig.ownJs),
@@ -277,6 +276,7 @@ task('scripts:dev', (cb) => {
   cb();
 });
 
+// scripts just for develop - without minification and concatenation
 task('scripts:serve', (cb) => {
   src(jsVendorConfig.ownJs)
     .pipe($.sourcemaps.init())
