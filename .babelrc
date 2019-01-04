@@ -1,5 +1,5 @@
 {
-  "presets": ["env"],
+  "presets": ["@babel/preset-env"],
   "retainLines": true,
   "ignore": [
     "./app/scripts/vendor/svgxuse.js",

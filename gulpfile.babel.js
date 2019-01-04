@@ -25,8 +25,8 @@
 // You can read more about the new JavaScript features here:
 // https://babeljs.io/docs/learn-es2015/
 
-import path from 'path';
 const { watch, series, parallel, task, src, dest } = require('gulp');
+import path from 'path';
 import del from 'del';
 import browserSync from 'browser-sync';
 import swPrecache from 'sw-precache';
