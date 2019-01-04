@@ -2,6 +2,10 @@
 
 This demo is based on Bigger Picture / Studio Sidekicks boilerplate that has been created based on [Web Starter Kit](https://developers.google.com/web/tools/starter-kit/) - an opinionated boilerplate for web development. Unfortunately Google is no longer supporting and developing that project so we have decided to start keeping that up-to-date by ourselves. We upgraded all the tools and now it uses new Gulp 4.0.0 and Babel 7.2 to transpile the ES7+ scripts.
 
+### How to use it?
+1. Installation: `npm install` or `yarn install`
+2. Development: `gulp serve` (it requires Gulp installation first)
+3. Building: `gulp`
 
 ### Features
 
