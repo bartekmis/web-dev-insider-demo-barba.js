@@ -1,9 +1,12 @@
 # What is it?
 It is a demo for the free whitepaper that you can download here (link very soon).
 
-Demo:
-1. Without Barba.js (branch: master): https://www.webdevinsider.pl/demo/barba.js/before/
-2. With Barba.js (branch *soon*): link soon
+Demo & Source Code:
+1. #### Without Barba.js:
+- source code: https://github.com/bartekmis/web-dev-insider-demo-barba.js/tree/master
+- demo: https://www.webdevinsider.pl/demo/barba.js/before/
+
+2. #### With Barba.js (branch *soon*): link soon
 
 ## A few words about the boilerplate / starter kit
 
