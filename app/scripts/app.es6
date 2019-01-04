@@ -474,12 +474,12 @@ function runWebsiteScripts() {
 runWebsiteScripts();
 
 
-window.addEventListener('resize', function() {
-    setTimeout(function(){
+window.addEventListener('resize', () => {
+    setTimeout(function() {
         Waypoint.refreshAll();
     }, 80);
 }, false);
 
-window.addEventListener('scroll', function() {
+window.addEventListener('scroll', () => {
     WDI.navigationVisibility();
 }, false);
