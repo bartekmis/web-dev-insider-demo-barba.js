@@ -522,9 +522,9 @@ const FadeTransition = Barba.BaseTransition.extend({
         }, fadeOutTimeout);
 
 
-        return deferred.promise().then(() => {
-            return $(this.oldContainer).animate({ opacity: 0, 'margin-top': '60px' }, 600).promise();
-        });
+        return deferred.promise().then(() => 
+            $(this.oldContainer).animate({ opacity: 0, 'margin-top': '60px' }, 600).promise()
+        );
     },
 
     fadeIn: function() {
