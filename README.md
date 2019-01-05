@@ -6,7 +6,9 @@ Demo & Source Code:
 - source code: https://github.com/bartekmis/web-dev-insider-demo-barba.js/tree/master
 - demo: https://www.webdevinsider.pl/demo/barba.js/before/
 
-2. #### With Barba.js (branch *soon*): link soon
+2. #### With Barba.js:
+- source code: https://github.com/bartekmis/web-dev-insider-demo-barba.js/tree/barba.js
+- demo: https://www.webdevinsider.pl/demo/barba.js/after/
 
 ## A few words about the boilerplate / starter kit
 
