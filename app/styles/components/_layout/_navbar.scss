@@ -55,11 +55,15 @@
     &__primary-nav {
         &-link {
             background-color: transparent;
-            color: #fff;
+            color: $colorMain;
             font-weight: 600;
             outline: none;
 
             transition: background-color 0.4s ease;
+
+            @media (min-width: 1024px) {
+                color: #fff;
+            }
         }
 
         @media (max-width: 1023px) {
