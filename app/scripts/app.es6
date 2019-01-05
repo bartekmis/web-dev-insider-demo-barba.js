@@ -555,6 +555,29 @@ const FadeTransition = Barba.BaseTransition.extend({
     }
 });
 
+// prevent Barba.js loading of links to documents such as PDF, zip, txt etc.
+Barba.Pjax.originalPreventCheck = Barba.Pjax.preventCheck;
+
+Barba.Pjax.preventCheck = function(evt, element) {
+    if (!Barba.Pjax.originalPreventCheck(evt, element)) {
+        return false;
+    }
+
+    if (
+        /.pdf/.test(element.href.toLowerCase()) || 
+        /.zip/.test(element.href.toLowerCase()) || 
+        /.txt/.test(element.href.toLowerCase())
+    ) {
+        return false;
+    }
+
+    if ($(element).attr('href') && $(element).attr('href').indexOf('#') > -1) {
+        return true;
+    } else {
+        return Barba.Pjax.originalPreventCheck(evt, element);
+    }
+};
+
 // setting up the transition effect
 Barba.Pjax.getTransition = function() {
     return FadeTransition;
