@@ -4,6 +4,7 @@
     "@babel/preset-env": "^7.2.3",
     "@babel/register": "^7.0.0",
     "acorn": "^6.0.4",
+    "barba.js": "^1.0.0",
     "browser-sync": "^2.14.0",
     "chai": "^3.5.0",
     "del": "^2.2.2",

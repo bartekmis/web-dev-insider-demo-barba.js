@@ -449,12 +449,26 @@ WDI.utils.hashInUrlScrollTo = function()  {
     }
 };
 
-function runWebsiteScripts() {
+// event listeners
+window.addEventListener('resize', () => {
+    setTimeout(function() {
+        Waypoint.refreshAll();
+    }, 80);
+}, false);
+
+window.addEventListener('scroll', () => {
+    WDI.navigationVisibility();
+}, false);
+
+// all website scripts
+function runWebsiteScriptsOnce() {
     // navigation
     WDI.navigationVisibility();
     WDI.mobileMenu.init();
     WDI.megamenu.init();
+}
 
+function runWebsiteScripts() {
     // functionalities
     WDI.sliders.init();
     WDI.utils.hashAnchorClick();
@@ -472,14 +486,90 @@ function runWebsiteScripts() {
     WDI.calculate100vh();
 }
 
-runWebsiteScripts();
+/* 
+ * Barba.js integration
+ * 
+*/
+// container
+let barbaContainer = $('.barba-container').length;
 
-window.addEventListener('resize', () => {
-    setTimeout(function() {
-        Waypoint.refreshAll();
-    }, 80);
-}, false);
+// transitions
+const FadeTransition = Barba.BaseTransition.extend({
+    start: function() {
+        Promise
+            .all([this.fadeOut(), this.newContainerLoading])
+            .then(this.fadeIn.bind(this));
+    },
 
-window.addEventListener('scroll', () => {
-    WDI.navigationVisibility();
-}, false);
+    fadeOut: function() {
+        var deferred = new jQuery.Deferred();
+        let menuWasOpened = false;
+        let fadeOutTimeout = 200;
+        const burger = document.querySelector('.burger');
+    
+        if (burger) {
+            if (burger.classList.contains('burger--open')) {
+                burger.click();
+                menuWasOpened = true;
+            }
+        }
+
+        Waypoint.destroyAll();
+
+        setTimeout(function() {
+            $("html, body").animate({ scrollTop: 0 }, "slow");
+            deferred.resolve();
+        }, fadeOutTimeout);
+
+
+        return deferred.promise().then(() => {
+            return $(this.oldContainer).animate({ opacity: 0, 'margin-top': '60px' }, 600).promise();
+        });
+    },
+
+    fadeIn: function() {
+        function destroyOwlCarousels() {
+            if (!($('.owl-loaded').length)) {
+                return;
+            }
+    
+            $('.owl-loaded').trigger('destroy.owl.carousel').removeClass('owl-carousel owl-loaded');
+            $('.owl-loaded').find('.owl-stage-outer').children().unwrap();
+        }
+
+        var _this = this;
+        var $el = $(this.newContainer);
+
+        destroyOwlCarousels();
+
+        $(this.oldContainer).hide();
+
+        $el.css({
+            visibility : 'visible',
+            opacity : 0
+        });
+
+        $el.animate({ opacity: 1 }, 200, function() {
+            _this.done();
+        });
+    }
+});
+
+// setting up the transition effect
+Barba.Pjax.getTransition = function() {
+    return FadeTransition;
+};
+
+// Barba.js settings
+Barba.Dispatcher.on('transitionCompleted', function(currentStatus, oldStatus) {
+    runWebsiteScripts();
+});
+
+// scripts execution
+runWebsiteScriptsOnce();
+
+if (barbaContainer) {
+    Barba.Pjax.start();
+} else {
+    runWebsiteScripts();
+}
