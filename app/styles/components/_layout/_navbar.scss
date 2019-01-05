@@ -10,7 +10,7 @@
     left: 0;
     right: 0;
     z-index: 10;
-    background: linear-gradient(-225deg, #FFE29F 0%, rgba(255, 169, 159, 0.938) 48%, rgba(113, 122, 255, 0.95) 100%);
+    background: linear-gradient(225deg, #FFE29F 0%, rgba(255, 169, 159, 0.938) 48%, rgba(113, 122, 255, 0.95) 100%);
     border-bottom: 2px solid #fff;
 
     width: 100%;
@@ -55,7 +55,7 @@
     &__primary-nav {
         &-link {
             background-color: transparent;
-            color: $colorMain;
+            color: #fff;
             font-weight: 600;
             outline: none;
 
@@ -103,6 +103,7 @@
 
                 &--active {
                     background-color: #fff;
+                    color: $colorMain;
                 }
 
                 &:hover {
@@ -111,18 +112,11 @@
             }
         }
 
-        @media (min-width: 1024px) and (max-width: 1250px) {
+        @media (min-width: 1024px) {
             &-link {
-                padding: 1.1em 1.2em;
+                padding: 1.45em 2em;
             }
         }
-
-        @media (min-width: 1251px) {
-            &-link {
-                padding: 1.5em 2em;
-            }
-        }
-
 
         @media (max-width: 1023px) and (orientation: landscape) {
             padding-bottom: 0.75rem;
@@ -203,43 +197,5 @@
 
     &__burger {
         right: 1em;
-    }
-
-    &__search-form {
-        display: none;
-
-        &-wrapper {
-            display: inline-block;
-            vertical-align: middle;
-        }
-
-        &-inner {
-            display: flex;
-            height: 27px;
-        }
-    }
-
-    &__search-input {
-        border: 0;
-        padding: 0;
-        width: 15rem;
-
-        @media (min-width: 1024px) and (max-width: 1250px) {
-            width: 8rem;
-        }
-
-        font-size: rem(14px);
-
-        &:focus {
-            outline: 0;
-        }
-    }
-
-    &__search-close {
-        background-color: transparent;
-
-        svg {
-            stroke: #000;
-        }
     }
 }
