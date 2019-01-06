@@ -20,8 +20,6 @@
         "./app/scripts/app.es6"
     ],
 
-    "head": [],
-
     "body": [
         "scripts/barba.min.js",
         "scripts/jquery.min.js",
@@ -37,17 +35,6 @@
         "scripts/_trackEvent.js",
         "scripts/_form.js",
         "scripts/svgxuse.js",
-        "scripts/app.js"
-    ],
-
-    "jsHint": [
-        "scripts/main.js",
-        "scripts/_screenSize.js",
-        "scripts/_scrollToId.js",
-        "scripts/_animationedSections.js",
-        "scripts/_popup.js",
-        "scripts/_trackEvent.js",
-        "scripts/_form.js",
         "scripts/app.js"
     ]
 }

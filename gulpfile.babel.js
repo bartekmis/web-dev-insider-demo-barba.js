@@ -32,7 +32,7 @@ import browserSync from 'browser-sync';
 import swPrecache from 'sw-precache';
 import gulpLoadPlugins from 'gulp-load-plugins';
 import pkg from './package.json';
-import jsVendorConfig from './javascripts.config.json';
+import scriptsConfig from './javascripts.config.json';
 import svgstore from 'gulp-svgstore';
 import svgmin from 'gulp-svgmin';
 import rename from 'gulp-rename';
@@ -78,25 +78,17 @@ function reload(done) {
   done();
 }
 
-var scriptHtmlHead = ' ',
-  scriptHtmlBody = ' ';
+let scriptHtmlBody = '';
 
-if (jsVendorConfig.head.length) {
-  for (var i = 0; i < jsVendorConfig.head.length; i++) {
-    scriptHtmlHead += '<script src="' + jsVendorConfig.head[i] + '"></script>';
-  }
-}
-
-if (jsVendorConfig.body.length) {
-  for (var i = 0; i < jsVendorConfig.body.length; i++) {
-    scriptHtmlBody += '<script src="' + jsVendorConfig.body[i] + '"></script>';
+if (scriptsConfig.body.length) {
+  for (var i = 0; i < scriptsConfig.body.length; i++) {
+    scriptHtmlBody += '<script src="' + scriptsConfig.body[i] + '"></script>';
   }
 }
 
 // templates - variables replacement
 task('templates', (cb) => {
   src('app/*.html')
-    .pipe(replace('@HeadJS', scriptHtmlHead))
     .pipe(replace('@BodyJS', scriptHtmlBody))
     .pipe(replace('@Timestamp', Date.now() ))
     .pipe(dest('.tmp/'));
@@ -106,7 +98,6 @@ task('templates', (cb) => {
 // templates build
 task('templates-build', (cb) => {
   src('dist/*.html')
-    .pipe(replace('@HeadJS', scriptHtmlHead))
     .pipe(replace('@BodyJS', scriptHtmlBody))
     .pipe(replace('@Timestamp', Date.now() ))
     .pipe(dest('dist/'));
@@ -211,7 +202,7 @@ task('styles:dev', (cb) => {
 // to enable ES2015 support remove the line `"only": "gulpfile.babel.js",` in the
 // `.babelrc` file.
 task('scripts', (cb) => {
-  src(jsVendorConfig.ownJs)
+  src(scriptsConfig.ownJs)
     //.pipe($.newer('.tmp/scripts'))
     .pipe($.sourcemaps.init())
     .pipe($.babel())
@@ -228,7 +219,7 @@ task('scripts', (cb) => {
 });
 
 task('scripts:vendor', (cb) => {
-  src(jsVendorConfig.vendor)
+  src(scriptsConfig.vendor)
     //.pipe($.newer('.tmp/scripts'))
     .pipe($.sourcemaps.init())
     .pipe($.babel())
@@ -269,7 +260,7 @@ task('scripts-merge-with-barba', (cb) => {
 // transpilation only own JS files
 task('scripts:dev', (cb) => {
   src(
-      jsVendorConfig.vendor.concat(jsVendorConfig.ownJs),
+      scriptsConfig.vendor.concat(scriptsConfig.ownJs),
     )
     .pipe($.sourcemaps.init())
     .pipe($.babel())
@@ -282,7 +273,7 @@ task('scripts:dev', (cb) => {
 
 // scripts just for develop - without minification and concatenation
 task('scripts:serve', (cb) => {
-  src(jsVendorConfig.ownJs)
+  src(scriptsConfig.ownJs)
     .pipe($.sourcemaps.init())
     .pipe($.babel())
     .pipe($.sourcemaps.write())
