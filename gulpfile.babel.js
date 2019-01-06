@@ -388,8 +388,11 @@ task('generate-service-worker', series('copy-sw-scripts', 'write-service-worker'
 const watchStyles = () => watch(['app/styles/**/*.{scss,css}'], series('styles:dev'));
 const watchTemplates = () => watch(['app/*.html'], series('templates', reload));
 const watchScripts = () => watch(['app/scripts/**/*.js', 'app/scripts/**/*.es6'], series('scripts:serve', 'jsLinter', reload));
+const watchImages = () => watch(['app/images/**/*', '!app/images/**/*.svg'], series('copyImagesDev', reload));
+const watchIcons = () => watch(['app/images/icons/**/*'], series('svgstore', reload));
+const watchFonts = () => watch(['app/fonts/**/*'], series('copyFontsDev', reload));
 
-task('watch', parallel(serve, watchStyles, watchTemplates, watchScripts));
+task('watch', parallel(serve, watchStyles, watchTemplates, watchScripts, watchImages, watchIcons, watchFonts));
 task('buildForDev', series('styles:dev', 'templates', 'scripts:vendor-copy', 'scripts:dev', 'copyFontsDev', 'copyImagesDev', 'svgstore'));
 task('serve', series('buildForDev', 'watch'));
 
