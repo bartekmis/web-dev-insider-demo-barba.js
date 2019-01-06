@@ -97,3 +97,16 @@
         bottom: 2em;
     }
 }
+
+// homepage header hero bg
+@media all and (max-width: 768px) {
+    #hero-bg {
+        background-image: url('../images/IMG_8726-mobile.jpg');
+    }
+}
+
+@media all and (min-width: 769px) {
+    #hero-bg {
+        background-image: url('../images/IMG_8726.jpg');
+    }
+}

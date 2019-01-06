@@ -19,8 +19,6 @@
         "./app/scripts/app.es6"
     ],
 
-    "head": [],
-
     "body": [
         "scripts/jquery.min.js",
         "scripts/noframework.waypoints.min.js",
