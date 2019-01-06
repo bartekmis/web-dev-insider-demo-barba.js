@@ -82,7 +82,7 @@ let scriptHtmlBody = '';
 
 if (scriptsConfig.body.length) {
   for (var i = 0; i < scriptsConfig.body.length; i++) {
-    scriptHtmlBody += '<script src="' + scriptsConfig.body[i] + '"></script>';
+    scriptHtmlBody += `<script src="${scriptsConfig.body[i]}"></script>`;
   }
 }
 
